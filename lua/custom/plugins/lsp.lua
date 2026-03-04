@@ -135,11 +135,13 @@ return {
 						},
 					},
 				},
+				tailwindcss = {},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua",
+				"tailwindcss-language-server",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -165,6 +167,9 @@ return {
 		"pmizio/typescript-tools.nvim",
 		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		keys = {
+			{ "<leader>ai", "<cmd>TSToolsAddMissingImports<cr>", desc = "[A]dd missing [i]mports" },
+		},
 		opts = {},
 	},
 }
