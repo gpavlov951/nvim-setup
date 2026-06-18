@@ -159,6 +159,9 @@ return {
 					end,
 				},
 			})
+
+			-- Disable ts_ls to prevent duplicate with typescript-tools
+			vim.lsp.enable("ts_ls", false)
 		end,
 	},
 
